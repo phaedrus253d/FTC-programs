@@ -3,5 +3,5 @@
 
 task main()
 {
-	move(RIGHT, 75, 1000);
+	move(FORWARD, 75, 1000);
 }

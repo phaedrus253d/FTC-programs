@@ -10,25 +10,25 @@ typedef enum {
 void move(MoveDirections direction, int speed, int duration)
 {
 	//capNumber(&speed, -100, 100);
-	if(direction == FORWARD)
-	{
+	switch(direction){
+	case FORWARD:
 		motor[motorD] = speed;
 		motor[motorE] = speed;
-	}
-	if(direction == BACKWARD)
-	{
+		break;
+	case BACKWARD:
 		motor[motorD] = -speed;
 		motor[motorE] = -speed;
-	}
-	if(direction == RIGHT)
-	{
+		break;
+	case RIGHT:
 		motor[motorD] = -speed;
 		motor[motorE] = speed;
-	}
-	if(direction == LEFT)
-	{
+		break;
+	case LEFT:
 		motor[motorD] = speed;
 		motor[motorE] = -speed;
+		break;
+	default:
+		break;
 	}
 	wait1Msec(duration);
 	motor[motorD] = 0;
