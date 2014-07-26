@@ -1,5 +1,5 @@
-#include "gearli pragmas.h"
-#include "motor control.h"
+#include "libs/gearli pragmas.h"
+#include "libs/motor control.h"
 
 task main()
 {
