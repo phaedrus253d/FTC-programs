@@ -3,19 +3,17 @@
 
 typedef struct Gyro
 {
-	float offset;
-	int lastReading;
-	tSensors port;
+	float offset;				// the offset of the sensor, used for calibration
+	tSensors port;			// port of the sensor
 } Gyro;
 
-void createGyro(Gyro &g, tSensors gyroPort)
+void createGyro(Gyro &g, tSensors gyroPort) // creates a gyro struct and inits it's variables
 {
 	g.offset = 0;
-	g.lastReading = 0;
 	g.port = gyroPort;
 }
 
-void calibrateGyro(Gyro &g, int numberOfTests = 50)
+void calibrateGyro(Gyro &g, int numberOfTests = 50) // calibrates the gyroscopic sensor
 {
 	float average = 0;
 	for(int i = 0; i < numberOfTests; i++)
@@ -23,14 +21,12 @@ void calibrateGyro(Gyro &g, int numberOfTests = 50)
 		average += SensorValue(g.port);
 	}
 	average /= numberOfTests;
-	g.offset = average;
+	g.offset = average; // sets the offset to the average of the numOfTests
 }
 
-int readGyro(Gyro &g)
+int readGyro(Gyro &g) // reads the gyroSensor
 {
-	int value = SensorValue(g.port) - g.offset;
-	g.lastReading = value;
-	return value;
+	return SensorValue(g.port) - g.offset;
 }
 
 #endif
