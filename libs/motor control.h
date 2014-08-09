@@ -1,8 +1,6 @@
 #ifndef MOTOR_CONTROL
 #define MOTOR_CONTROL
 
-#include "math utils.h"
-
 typedef enum // this enum is used to denote different movement directions, only for the simple movement below
 {
 	FORWARD, BACKWARD, RIGHT, LEFT
