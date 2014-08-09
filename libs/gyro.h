@@ -7,7 +7,7 @@ typedef struct Gyro
 	tSensors port;			// port of the sensor
 } Gyro;
 
-void createGyro(Gyro &g, tSensors gyroPort) // creates a gyro struct and inits it's variables
+void createGyro(Gyro &g, tSensors gyroPort) // creates a gyro struct and inits variables
 {
 	g.offset = 0;
 	g.port = gyroPort;
