@@ -1,8 +1,12 @@
 #ifndef MOTOR_CONTROL
 #define MOTOR_CONTROL
 
+<<<<<<< HEAD
 #include "gyro.h"
 #include "gearli pragmas.h"
+=======
+#include "math utils.h"
+>>>>>>> origin/master
 
 typedef enum // this enum is used to denote different movement directions, only for the simple movement below
 {
