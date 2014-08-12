@@ -1,7 +1,7 @@
 #ifndef DISPLAY
 #define DISPLAY
 
-void displayText(string text, int lineNumber)
+void displayLibText(string text, int lineNumber)
 {
 	nxtDisplayTextLine(lineNumber, text);
 }

@@ -1,6 +1,9 @@
 #ifndef MOTOR_CONTROL
 #define MOTOR_CONTROL
 
+#include "gyro.h"
+#include "gearli pragmas.h"
+
 typedef enum // this enum is used to denote different movement directions, only for the simple movement below
 {
 	FORWARD, BACKWARD, RIGHT, LEFT
@@ -34,4 +37,37 @@ void move(SimpleMoveDirections direction, int speed, int duration)
 	motor[motorD] = 0; 		// kills the motors
 	motor[motorE] = 0;
 }
+
+void gyroTurn(Gyro g, int numOfDegrees, int speed)
+{
+	motor[motorD] = -speed;
+	motor[motorE] = speed;
+	float x = 0;
+	float heading = 0;
+	while(heading < numOfDegrees)
+	{
+		float deltaTime = getTimeFromTimer(g.gyroTime);
+		clearLibTimer(g.gyroTime);
+		x+=(readGyro(g));
+
+		float updateRatio = 1000 / deltaTime;
+		heading = x / updateRatio;
+		displayNumber(heading, 2);
+
+		if(heading > (numOfDegrees - 60))
+		{
+			motor[motorD] = -15;
+			motor[motorE] = 15;
+		}
+		if(heading > (numOfDegrees - 20))
+		{
+			motor[motorD] = -7;
+			motor[motorE] = 7;
+		}
+		wait1Msec(5);
+	}
+	motor[motorD] = 0;
+	motor[motorE] = 0;
+}
+
 #endif

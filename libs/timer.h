@@ -15,7 +15,7 @@ void createTimer(Timer &t, TTimers timer = T2)
 	t.targetTime = 0;
 }
 
-void clearTimer(Timer &t)				// clears the timer
+void clearLibTimer(Timer &t)				// clears the timer
 {
 	t.lastTime = time1[t.timer];	// all we do here is set the last time read to the current time
 }
