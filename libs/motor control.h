@@ -1,7 +1,7 @@
 #ifndef MOTOR_CONTROL
 #define MOTOR_CONTROL
 
-<<<<<<< HEAD
+
 #include "gyro.h"
 #include "gearli pragmas.h"
 
@@ -49,11 +49,11 @@ void gyroTurn(LibGyro g, int numOfDegrees, int speed)
 	{
 		float deltaTime = getTimeFromLibTimer(g.gyroTime);
 		clearLibTimer(g.gyroTime);
-		x+=(readGyro(g));
+		x+=(readLibGyro(g));
 
 		float updateRatio = 1000 / deltaTime;
 		heading = x / updateRatio;
-		displayNumber(heading, 2);
+		displayLibNumber(heading, 2);
 
 		if(heading > (numOfDegrees - 60))
 		{
