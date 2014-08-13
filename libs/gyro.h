@@ -7,17 +7,17 @@ typedef struct Gyro
 {
 	float offset;				// the offset of the sensor, used for calibration
 	tSensors port;			// port of the sensor
-	Timer gyroTime;
-} Gyro;
+	LibTimer gyroTime;
+} LibGyro;
 
-void createGyro(Gyro &g, tSensors gyroPort) // creates a gyro struct and inits variables
+void createLibGyro(LibGyro &g, tSensors gyroPort) // creates a gyro struct and inits variables
 {
 	g.offset = 0;
 	g.port = gyroPort;
-	createTimer(g.gyroTime);
+	createLibTimer(g.gyroTime);
 }
 
-void calibrateGyro(Gyro &g, int numberOfTests = 50) // calibrates the gyroscopic sensor
+void calibrateLibGyro(LibGyro &g, int numberOfTests = 50) // calibrates the gyroscopic sensor
 {
 	float average = 0;
 	for(int i = 0; i < numberOfTests; i++)
@@ -29,7 +29,7 @@ void calibrateGyro(Gyro &g, int numberOfTests = 50) // calibrates the gyroscopic
 	g.offset = average; // sets the offset to the average of the numOfTests
 }
 
-long readGyro(Gyro &g) // reads the gyroSensor
+long readLibGyro(LibGyro &g) // reads the gyroSensor
 {
 	return SensorValue(g.port) - g.offset;
 }

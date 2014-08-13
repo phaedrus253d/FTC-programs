@@ -4,9 +4,6 @@
 <<<<<<< HEAD
 #include "gyro.h"
 #include "gearli pragmas.h"
-=======
-#include "math utils.h"
->>>>>>> origin/master
 
 typedef enum // this enum is used to denote different movement directions, only for the simple movement below
 {
@@ -42,7 +39,7 @@ void move(SimpleMoveDirections direction, int speed, int duration)
 	motor[motorE] = 0;
 }
 
-void gyroTurn(Gyro g, int numOfDegrees, int speed)
+void gyroTurn(LibGyro g, int numOfDegrees, int speed)
 {
 	motor[motorD] = -speed;
 	motor[motorE] = speed;
@@ -50,7 +47,7 @@ void gyroTurn(Gyro g, int numOfDegrees, int speed)
 	float heading = 0;
 	while(heading < numOfDegrees)
 	{
-		float deltaTime = getTimeFromTimer(g.gyroTime);
+		float deltaTime = getTimeFromLibTimer(g.gyroTime);
 		clearLibTimer(g.gyroTime);
 		x+=(readGyro(g));
 

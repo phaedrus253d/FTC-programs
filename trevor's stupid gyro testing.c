@@ -8,13 +8,11 @@ task main()
 	nxtDisplayCenteredTextLine(3, "FROM ROBOT");
 	wait1Msec(2000);
 	eraseDisplay();
-	Gyro g;
-	float x=0;
+	LibGyro g;
 
+	createLibGyro(g, S4);
 
-	createGyro(g, S4);
-
-	calibrateGyro(g);
+	calibrateLibGyro(g);
 	//move(FORWARD, 100, 1000);
 	gyroTurn(g, 90, 50);
 }

@@ -6,12 +6,12 @@ void displayLibText(string text, int lineNumber)
 	nxtDisplayTextLine(lineNumber, text);
 }
 
-void displayNumber(int data, int lineNumber)
+void displayLibNumber(int data, int lineNumber)
 {
 	nxtDisplayTextLine(lineNumber, "%d", data);
 }
 
-void displayNumber(float data, int lineNumber)
+void displayLibNumber(float data, int lineNumber)
 {
 	nxtDisplayTextLine(lineNumber, "%f", data);
 }
