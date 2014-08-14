@@ -42,7 +42,7 @@ bool prepairSMUX(tSensors SMUXPort, bool runBefore = false)
 	return result;
 }
 
-tMUXSensor smuxSensorPortIndex[4][4] = {
+const tMUXSensor smuxSensorPortIndex[4][4] = {
 	{
 		msensor_S1_1,
 		msensor_S1_2,
