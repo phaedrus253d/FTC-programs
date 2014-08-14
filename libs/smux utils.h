@@ -69,7 +69,7 @@ const tMUXSensor smuxSensorPortIndex[4][4] = {
 	}
 };
 
-tMUXSensor getSensor(int nxtPortNumber, int smuxPortNumber)
+tMUXSensor getSmuxSensor(int nxtPortNumber, int smuxPortNumber)
 {
 	return smuxSensorPortIndex[nxtPortNumber - 1][smuxPortNumber - 1];
 }

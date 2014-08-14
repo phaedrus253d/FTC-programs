@@ -3,7 +3,6 @@
 
 
 #include "gyro.h"
-#include "gearli pragmas.h"
 
 typedef enum // this enum is used to denote different movement directions, only for the simple movement below
 {
